@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"
+    />
+</head>
+<style>
+
+
+</style>
+<body>
+
+<section class="hero is-link is-fullheight"
+         style="background-image: url('https://wallpaperaccess.com/full/385736.jpg')">
+    <div class="hero-body">
+        <div class="container">
+            <h1 style="font-size: 40px; padding: 10px; align: center; font-family: Roboto; display: flex; flex-direction: column; justify-content: center; text-align: center; color: white;">
+                Słowniki</h1>
+
+            <div style="font-size: 20px; margin: 100px; padding: 10px; font-weight: bold; font-family: Montserrat; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); color: black;"
+                 class="notification">
+                <ul>
+                    <code>Wypisywanie ze słowników: </code>
+                    {% for element, type in data.items %}
+
+                    <li>{{element}} to {{ type }}</li>
+                    {% endfor %}
+                </ul>
+
+            </div>
+        </div>
+</section>
+
+
+</html>

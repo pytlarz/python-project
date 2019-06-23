@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"
+
+    />
+</head>
+<style>
+      .hero-body {
+      background-image: url('https://wallpaperaccess.com/full/385736.jpg')
+      }
+
+</style>
+<section class="hero is-large">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <p class="title is-family-sans-serif" style="font-size: 70px; color: white;">
+                Krakowskie Restauracje
+            </p>
+            <p class="subtitle" style="font-size: 50px; color: white; font-family: Roboto;">
+                Poznaj je!
+            </p>
+        </div>
+    </div>
+    <div class="hero-foot">
+        <nav class="tabs is-boxed is-fullwidth">
+            <div class="container" style="font-size: 1.5em; padding:30px;">
+                <ul>
+                    <li>
+                        <a href="/myapp"
+                           style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">Wszystkie</a>
+                    </li>
+                    &nbsp;&nbsp;&nbsp;
+                    <li>
+                        <a href="/myapp?vegetarian=1"
+                           style="color: green; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">Restauracje
+                            wegetarianskie</a>
+                    </li>
+                    &nbsp;&nbsp;&nbsp;
+                    <li style="border-radius: 5px;">
+                        <a href="/myapp?polish=1"
+                           style="color: red; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); ">Kuchnia
+                            polska</a>
+                    </li>
+                    &nbsp;&nbsp;&nbsp;
+                    <li>
+                        <a href="/myapp?asian=1"
+                           style="color: orange; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">Kuchnia
+                            azjatycka</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</section>
+{% for e in data %}
+<div class="container">
+    <div style="margin: 100px; padding: 10px; font-weight: bold; font-family: Montserrat; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"
+         class="notification">
+        <div><code>ID:</code>{{ e.id }}</div>
+        <div><code>Nazwa:</code><strong>{{ e.name }}</div>
+        <div><code>Adres:</code>{{ e.address }}</div>
+        <div><code>Miasto:</code>{{ e.cityName }}</div>
+        <div><code>Szerokość geograficzna:</code>{{ e.latitude }}</div>
+        <div><code>Długość geograficzna:</code>{{ e.longitude }}</div>
+        <div><code>Numer telefonu:</code>{{ e.phoneNumber }}</div>
+        <div><code>Strona internetowa:</code>{{ e.websiteUrl }}</div>
+        <div><code>Facebook:</code>{{ e.facebookUrl }}</div>
+        <div>
+            {% for type in e.types %}
+            <div><code>{{ type.label }}</code></div>
+            {% endfor %}
+        </div>
+        <div>
+            {% for kind in e.kinds %}
+            <div><code>{{ kind.name }}</code></div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+</body>
+</html>
